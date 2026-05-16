@@ -1,36 +1,29 @@
 package com.uhyo.backend_data_management.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import lombok.Data;
 
-/**
- * PostgreSQL の app.pswd_expired テーブルに対応する Entity クラス
- */
+@Data
 @Entity
 @Table(name = "pswd_expired", schema = "app")
 public class PswdExpired {
 
-    /** 主キー（pswd_expired_id カラムに対応） */
     @Id
-    private Long pswdExpiredId;
+    @Column(name = "pswd_expired_id")
+    private Integer id;
 
-    /** パスワードの有効期限（例） */
-    private String expiredDate;
+    @Column(name = "access_info")
+    private String accessInfo;
 
-    public Long getPswdExpiredId() {
-        return pswdExpiredId;
-    }
+    @Column(name = "user_id")
+    private String userId;
 
-    public void setPswdExpiredId(Long pswdExpiredId) {
-        this.pswdExpiredId = pswdExpiredId;
-    }
+    @Column(name = "password")
+    private String password;
 
-    public String getExpiredDate() {
-        return expiredDate;
-    }
+    @Column(name = "create_time")
+    private String createTime;
 
-    public void setExpiredDate(String expiredDate) {
-        this.expiredDate = expiredDate;
-    }
+    @Column(name = "updated_time")
+    private String updatedTime;
 }
